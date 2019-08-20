@@ -13,6 +13,7 @@
   $font-size: 16px;
   $line-height: 1.5;
   $lines-to-show: 2;
+
   .content {
     .cake-name {
       font-family: "PT Bold", serif;
@@ -42,4 +43,26 @@
     border-radius: 50%;
     border: 3px solid #EBEBEB;
   }
+
+  .cake-footer {
+    height: 14px;
+    font-size: 12px;
+    letter-spacing: 1.08px;
+    color: #C4C4C4;
+
+    & > span {
+      display: inline-block;
+    }
+
+    .portion-number {
+      width: 120px;
+      padding-right: 10px;
+    }
+
+    .price {
+      width: 120px;
+      padding-left: 20px;
+    }
+  }
+
 }
