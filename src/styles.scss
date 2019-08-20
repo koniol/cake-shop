@@ -1,1 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: 'PT Sans';
+  src: url("/assets/fonts/PTS55F.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: 'PT Bold';
+  src: url("/assets/fonts/PTS75F.ttf") format("truetype");
+}
+
+*, body {
+  font-family: 'PT Sans', serif;
+}

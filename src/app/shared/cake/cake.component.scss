@@ -1,0 +1,27 @@
+.cake {
+  width: 632px;
+  height: 197px;
+
+  .wrapper {
+    display: flex;
+
+    & > div {
+      margin-left: 20px;
+    }
+  }
+
+  .content {
+    .cake-name {
+      font-family: "PT Bold", serif;
+      font-size: 20px;
+      color: #FFA786;
+    }
+  }
+
+  img {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    border: 3px solid #EBEBEB;
+  }
+}

@@ -1,1 +1,15 @@
-<p>cake works!</p>
+<div class="cake" *ngIf="cake">
+  <div class="wrapper">
+    <div class="image">
+      <img [src]="!cake.image ? 'assets/images/cake_02.png' : cake.image" alt="">
+    </div>
+    <div class="content">
+      <p class="cake-name">{{cake.name}}</p>
+      <p class="cake-description">{{cake.description}}</p>
+      <div>
+        <span class="portion-number">{{cake.numberOfPortion}}</span>
+        <span class="price"></span>
+      </div>
+    </div>
+  </div>
+</div>

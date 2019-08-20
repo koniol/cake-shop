@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { ICake } from '../../core/api/cakes/models/cake.model';
 
 @Component({
   selector: 'app-cake',
@@ -6,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cake.component.scss']
 })
 export class CakeComponent implements OnInit {
-
+  @Input() cake: ICake;
   constructor() { }
 
   ngOnInit() {
