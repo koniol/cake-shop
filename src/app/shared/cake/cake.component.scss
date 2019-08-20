@@ -10,11 +10,29 @@
     }
   }
 
+  $font-size: 16px;
+  $line-height: 1.5;
+  $lines-to-show: 2;
   .content {
     .cake-name {
       font-family: "PT Bold", serif;
       font-size: 20px;
       color: #FFA786;
+    }
+
+    .cake-description {
+      height: $font-size*$line-height*$lines-to-show;
+      font: Regular 16px/20px 'PT Sans';
+      letter-spacing: 0.8px;
+      color: #C4C4C4;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: block;
+      display: -webkit-box;
+      line-height: 1.5;
+      -webkit-line-clamp: $lines-to-show;
+      line-clamp: $lines-to-show;
+      -webkit-box-orient: vertical;
     }
   }
 
