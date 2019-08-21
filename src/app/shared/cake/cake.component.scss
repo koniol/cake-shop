@@ -2,6 +2,9 @@
   width: 632px;
   height: 197px;
 
+  box-sizing: border-box;
+  margin-bottom: 25px;
+
   .wrapper {
     display: flex;
 
@@ -15,15 +18,42 @@
   $lines-to-show: 2;
 
   .content {
-    .cake-name {
-      font-family: "PT Bold", serif;
-      font-size: 20px;
+    .color-orange {
       color: #FFA786;
     }
 
+    .number {
+      font-size: 18px;
+    }
+
+    .box {
+      font-family: "PT Bold", serif;
+      font-size: 20px;
+      margin-top: 20px;
+      display: flex;
+
+      .action-icons {
+        margin-left: auto;
+
+        .fa-plus-circle {
+          transform: rotate(45deg);
+        }
+
+        & i {
+          cursor: pointer;
+        }
+
+        & i:last-child {
+          margin-left: 20px;
+        }
+      }
+    }
+
+
     .cake-description {
       height: $font-size*$line-height*$lines-to-show;
-      font: Regular 16px/20px 'PT Sans';
+      font-size: 16px;
+      font-family: 'PT Sans', serif;
       letter-spacing: 0.8px;
       color: #C4C4C4;
       overflow: hidden;
@@ -34,6 +64,7 @@
       -webkit-line-clamp: $lines-to-show;
       line-clamp: $lines-to-show;
       -webkit-box-orient: vertical;
+      margin-bottom: 10px;
     }
   }
 
@@ -54,15 +85,17 @@
       display: inline-block;
     }
 
-    .portion-number {
+    .portion-number, .price {
       width: 120px;
+      font-weight: bold;
+    }
+
+    .portion-number {
       padding-right: 10px;
     }
 
     .price {
-      width: 120px;
       padding-left: 20px;
     }
   }
-
 }

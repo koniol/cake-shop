@@ -9,6 +9,16 @@
   src: url("/assets/fonts/PTS75F.ttf") format("truetype");
 }
 
+@font-face {
+  font-family: FontAwesome;
+  src: url(/assets/fonts/line-awesome.eot?v=1.1.);
+  src: url(/assets/fonts/line-awesome.eot??v=1.1.#iefix) format("embedded-opentype"), url(/assets/fonts/line-awesome.woff2?v=1.1.) format("woff2"), url(/assets/fonts/line-awesome.woff?v=1.1.) format("woff"), url(/assets/fonts/line-awesome.ttf?v=1.1.) format("truetype"), url(/assets/fonts/line-awesome.svg?v=1.1.#fa) format("svg");
+  font-weight: 400;
+  font-style: normal
+}
+
 *, body {
   font-family: 'PT Sans', serif;
+  margin: 0;
+  padding: 0;
 }

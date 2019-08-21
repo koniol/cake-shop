@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ICake } from '../../core/api/cakes/models/cake.model';
 
 @Component({
@@ -6,11 +6,16 @@ import { ICake } from '../../core/api/cakes/models/cake.model';
   templateUrl: './cake.component.html',
   styleUrls: ['./cake.component.scss']
 })
-export class CakeComponent implements OnInit {
+export class CakeComponent {
   @Input() cake: ICake;
-  constructor() { }
+  @Output() edit: EventEmitter<ICake> = new EventEmitter<ICake>();
+  @Output() remove: EventEmitter<ICake> = new EventEmitter<ICake>();
 
-  ngOnInit() {
+  onEdit(cake: ICake) {
+    this.edit.emit(cake);
   }
 
+  onRemove(cake: ICake) {
+    this.remove.emit(cake);
+  }
 }

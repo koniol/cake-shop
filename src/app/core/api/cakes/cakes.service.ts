@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
+import { AngularFirestore } from '@angular/fire/firestore';
 import { ICake } from './models/cake.model';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -10,8 +11,8 @@ export class CakesService {
   constructor(private db: AngularFirestore) {
   }
 
-  getCakes(): AngularFirestoreCollection<ICake> {
-    return this.db.collection('cakes');
+  getCakes(): Observable<Array<ICake>> {
+    return this.db.collection<ICake>('cakes').valueChanges();
   }
 
   addCake(cake: ICake) {

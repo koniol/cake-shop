@@ -21,6 +21,14 @@ export class AppComponent implements OnInit {
   }
 
   observeCakes() {
-    this.cakes = this.cakesService.getCakes().valueChanges();
+    this.cakes = this.cakesService.getCakes();
+  }
+
+  editCake($event: ICake) {
+
+  }
+
+  removeCake($event: ICake) {
+
   }
 }

@@ -4,12 +4,20 @@
       <img [src]="!cake.image ? 'assets/images/cake_02.png' : cake.image" alt="">
     </div>
     <div class="content">
-      <p class="cake-name">{{cake.name}}</p>
+      <div class="box">
+        <span class="cake-name color-orange">{{cake.name}}</span>
+        <span class="action-icons">
+          <i class="color-orange fa fa-pencil" (click)="onEdit(cake)"></i>
+          <i class="color-orange fa fa-plus-circle" (click)="onRemove(cake)"></i>
+        </span>
+
+      </div>
       <p class="cake-description">{{cake.description}}</p>
       <div class="cake-footer">
-        <span class="portion-number">LICZBA PORCJI {{cake.numberOfPortion}}</span>
+        <span class="portion-number">LICZBA PORCJI
+          <span class="color-orange number">{{cake.numberOfPortion}}</span></span>
         <span class="divider">|</span>
-        <span class="price">CENA CIASTA {{cake.price}}</span>
+        <span class="price">CENA CIASTA <span class="color-orange number">{{cake.price}}</span></span>
       </div>
     </div>
   </div>

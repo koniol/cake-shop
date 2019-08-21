@@ -27,6 +27,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/line-awesome/css/line-awesome.css",
               "src/styles.scss"
             ],
             "scripts": []
