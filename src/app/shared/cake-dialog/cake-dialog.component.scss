@@ -1,0 +1,44 @@
+header {
+  background: rgba(196, 196, 196, .1);
+  height: 134px;
+  position: relative;
+
+  .fa-plus {
+    color: white;
+    background: #ff5a1c;
+    height: 25px;
+    width: 24px;
+    border-radius: 50%;
+    line-height: 25px;
+    text-align: center;
+    position: relative;
+    top: 90px;
+    left: 375px;
+    z-index: 10;
+  }
+
+  img {
+    height: 180px;
+    width: 180px;
+  }
+
+  .empty-image-cake {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%);
+    width: 180px;
+    height: 180px;
+    background: #FFFFFF 0 0 no-repeat;
+    border: 3px solid #EBEBEB;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 200px;
+
+    .fa-birthday-cake {
+      font-size: 60px;
+      color: #EBEBEB;
+    }
+  }
+
+}

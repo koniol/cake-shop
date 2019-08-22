@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
 import { CakesService } from './core/api/cakes/cakes.service';
 import { ICake } from './core/api/cakes/models/cake.model';
+import { catchError, delay, tap } from 'rxjs/operators';
+import { of } from 'rxjs';
+import { MatDialog } from '@angular/material';
+import { CakeDialogComponent } from './shared/cake-dialog/cake-dialog.component';
 
 @Component({
   selector: 'app-root',
@@ -9,10 +12,12 @@ import { ICake } from './core/api/cakes/models/cake.model';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  cakes: Observable<Array<ICake>>;
+  cakes: Array<ICake> = [];
+  isLoading = false;
 
   constructor(
-    private cakesService: CakesService
+    private cakesService: CakesService,
+    private dialog: MatDialog,
   ) {
   }
 
@@ -21,7 +26,16 @@ export class AppComponent implements OnInit {
   }
 
   observeCakes() {
-    this.cakes = this.cakesService.getCakes();
+    this.isLoading = true;
+    this.cakesService.getCakes()
+      .pipe(
+        delay(3000),
+        tap(() => this.isLoading = false),
+        catchError(() => {
+          this.isLoading = false;
+          return of([]);
+        }))
+      .subscribe(cakes => this.cakes = cakes);
   }
 
   editCake($event: ICake) {
@@ -30,5 +44,14 @@ export class AppComponent implements OnInit {
 
   removeCake($event: ICake) {
 
+  }
+
+  addCake() {
+    this.dialog.open(CakeDialogComponent,
+      {
+        panelClass: 'custom-dialog',
+        height: '664px',
+        width: '631px',
+      });
   }
 }

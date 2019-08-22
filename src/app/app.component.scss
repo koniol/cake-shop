@@ -11,37 +11,48 @@ header {
 }
 
 .container {
-  width: 920px;
+  width: 632px;
   margin: 0 auto;
+  max-height: 540px;
+  overflow: hidden;
+  overflow-y: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
-.btn-add-cake {
-  position: fixed;
-  top: 699px;
-  left: 50%;
-  border: none;
-  color: white;
-  width: 192px;
-  height: 45px;
-  transform: translate(-50%);
-  background-image: linear-gradient(to right, #ffde86 -90%, #fec361, #fea541, #ff8328, #ff5a1c);
-  box-shadow: 0 3px 20px #B54600;
-  border-radius: 29px;
-  letter-spacing: 1.12px;
-  cursor: pointer;
-  display: flex;
+.container::-webkit-scrollbar {
+  display: none;
+}
 
-  &:focus {
-    outline: none;
+.empty-list {
+  margin: 0 auto;
+  width: 480px;
+  text-align: center;
+
+  .fa-birthday-cake {
+    font-size: 153px;
+    color: #FFA786;
+    opacity: 0.09;
+    margin-top: 76px;
   }
 
-  .fa-plus {
-    margin-left: 10px;
+  .no-cakes-text {
+    font: Bold 26px/33px PT Sans;
+    color: #FFA786;
+    margin-top: 20px;
   }
 
-  span {
-    font: Bold 14px/19px PT Sans;
-    margin-top: 5px;
-    margin-left: 10px;
+  .info-box {
+    margin-top: 20px;
+
+    .no-cakes-info {
+      text-align: center;
+      font: 20px/26px 'PT Sans';
+      letter-spacing: 1px;
+      color: #C4C4C4;
+      opacity: 1;
+    }
   }
+
+
 }

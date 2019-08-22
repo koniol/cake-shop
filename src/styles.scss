@@ -1,4 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
 @font-face {
   font-family: 'PT Sans';
   src: url("/assets/fonts/PTS55F.ttf") format("truetype");
@@ -22,3 +24,11 @@
   margin: 0;
   padding: 0;
 }
+
+.custom-dialog {
+  .mat-dialog-container {
+    padding: 0;
+    border-radius: 6px;
+  }
+}
+

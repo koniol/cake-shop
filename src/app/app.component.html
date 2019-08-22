@@ -39,16 +39,29 @@
   </div>
 </header>
 <div class="container">
-  <div class="cake" *ngFor="let cake of cakes | async">
+  <ng-container *ngIf="cakes.length then cakesList else default"></ng-container>
+  <app-button (click)="addCake()" [name]="'DODAJ CIASTO'"></app-button>
+</div>
+
+
+<ng-template #cakesList>
+  <div class="cake" *ngFor="let cake of cakes">
     <app-cake
       [cake]="cake"
       (edit)="editCake($event)"
       (remove)="removeCake($event)"
     ></app-cake>
   </div>
+</ng-template>
 
-  <button class="btn-add-cake">
-    <i class="fa fa-2x fa-plus"></i>
-    <span>DODAJ CIASTO</span>
-  </button>
-</div>
+<ng-template #default>
+  <app-spinner *ngIf="isLoading"></app-spinner>
+  <div class="empty-list" *ngIf="!isLoading">
+    <i class="fa fa-birthday-cake"></i>
+    <p class="no-cakes-text">Nie masz żadnych ciast na liście</p>
+    <div class="info-box">
+      <p class="no-cakes-info">Aby dodać pierwsze ciasto, kliknij </p>
+      <p class="no-cakes-info">w poniższy przycisk:</p>
+    </div>
+  </div>
+</ng-template>

@@ -1,0 +1,30 @@
+.btn-add-cake {
+  position: fixed;
+  top: 699px;
+  left: 50%;
+  border: none;
+  color: white;
+  width: 192px;
+  height: 45px;
+  transform: translate(-50%);
+  background-image: linear-gradient(to right, #ffde86 -90%, #fec361, #fea541, #ff8328, #ff5a1c);
+  box-shadow: 0 3px 20px #B54600;
+  border-radius: 29px;
+  letter-spacing: 1.12px;
+  cursor: pointer;
+  display: flex;
+
+  &:focus {
+    outline: none;
+  }
+
+  .fa-plus {
+    margin-left: 10px;
+  }
+
+  span {
+    font: Bold 14px/19px PT Sans;
+    margin-top: 5px;
+    margin-left: 10px;
+  }
+}
