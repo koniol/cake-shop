@@ -1,8 +1,9 @@
 export interface ICake {
-  id: number;
+  id?: number;
   name: string;
-  description: string;
   numberOfPortion: number;
-  image: string;
-  price: number;
+  image?: Blob;
+  description: string;
+  cakePrice: number;
+  portionPrice: number;
 }

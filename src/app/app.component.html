@@ -40,8 +40,8 @@
 </header>
 <div class="container">
   <ng-container *ngIf="cakes.length then cakesList else default"></ng-container>
-  <app-button (click)="addCake()" [name]="'DODAJ CIASTO'"></app-button>
 </div>
+<app-button (click)="openDialog()" [buttonName]="'DODAJ CIASTO'" [icon]="'plus'"></app-button>
 
 
 <ng-template #cakesList>

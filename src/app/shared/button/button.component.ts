@@ -6,12 +6,17 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./button.component.scss']
 })
 export class ButtonComponent implements OnInit {
-  @Input() name: string;
+  @Input() icon: string;
+  @Input() buttonName: string;
+  iconName: string;
 
   constructor() {
   }
 
   ngOnInit() {
+    if (this.icon) {
+      this.iconName = `fa fa-2x fa-${this.icon}`;
+    }
   }
 
 }

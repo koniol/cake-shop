@@ -19,8 +19,8 @@ import { CakeDialogComponent } from './shared/cake-dialog/cake-dialog.component'
     BrowserModule,
     BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFirestoreModule, // imports firebase/firestore, only needed for database features
-    AngularFireStorageModule, // imports firebase/storage only needed for storage features
+    AngularFirestoreModule,
+    AngularFireStorageModule,
     CoreModule,
     SharedModule,
   ],

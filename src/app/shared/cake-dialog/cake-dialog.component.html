@@ -1,9 +1,58 @@
 <div class="dialog">
   <header>
-    <i class="fa fa-plus"></i>
-    <!--    <img *ngIf="data.image" [src]="data.image" alt="">-->
-    <div class="empty-image-cake">
+    <i class="fa fa-plus" (click)="editImage()"></i>
+    <img *ngIf="image" [src]="image" alt="">
+    <input type="file" id="file"
+           accept="image/png, image/jpeg">
+
+    <div *ngIf="!image" class="empty-image-cake">
       <i class="fa fa-birthday-cake"></i>
     </div>
   </header>
+  <div class="main-container">
+    <form name="form" [formGroup]="form">
+      <div class="form-group cake-name">
+        <label>
+          <input type="text" name="name" formControlName="name" placeholder="Nazwa ciasta" autocomplete="off">
+        </label>
+      </div>
+      <div class="form-group cake-description">
+        <label>
+          <textarea placeholder="Opis ciasta" rows="5" formControlName="description" required maxlength="250"
+                    appTextareaLetterCounter color="#C4C4C4"
+                    autocomplete="off"></textarea>
+        </label>
+      </div>
+      <p class="number-portion">LICZBA PORCJI</p>
+      <div class="form-group cake-portions">
+        <label class="container">
+          <input type="radio" name="numberOfPortion" value="4" formControlName="numberOfPortion">
+          <span class="checkmark">4</span>
+        </label>
+        <label class="container">
+          <input type="radio" name="numberOfPortion" value="8" formControlName="numberOfPortion">
+          <span class="checkmark">8</span>
+        </label>
+        <label class="container">
+          <input type="radio" name="numberOfPortion" value="12" formControlName="numberOfPortion">
+          <span class="checkmark">12</span>
+        </label>
+      </div>
+
+      <div class="form-group price-box">
+        <div class="box cake-price">
+          <label>CENA CIASTA</label>
+          <input type="text" placeholder="0 PLN" formControlName="cakePrice" required autocomplete="off">
+        </div>
+        <div class="box portion-price">
+          <label>CENA PORCJI</label>
+          <input type="text" placeholder="0 PLN" formControlName="portionPrice" required autocomplete="off">
+        </div>
+      </div>
+    </form>
+
+  </div>
+  <div class="footer">
+    <app-button [buttonName]="'ZAPISZ'" (click)="save()"></app-button>
+  </div>
 </div>

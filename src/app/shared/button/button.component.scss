@@ -1,7 +1,4 @@
 .btn-add-cake {
-  position: fixed;
-  top: 699px;
-  left: 50%;
   border: none;
   color: white;
   width: 192px;
@@ -18,13 +15,25 @@
     outline: none;
   }
 
-  .fa-plus {
-    margin-left: 10px;
+  .fa {
+    display: none;
+  }
+
+  .active-icon {
+    padding-left: 10px;
+    line-height: 45px;
+    display: inline;
+  }
+
+  .mg-left-35 {
+    margin-left: -35px;
   }
 
   span {
+    display: block;
     font: Bold 14px/19px PT Sans;
-    margin-top: 5px;
-    margin-left: 10px;
+    width: 100%;
+    text-align: center;
+    line-height: 45px;
   }
 }

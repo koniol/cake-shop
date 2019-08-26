@@ -1,16 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CakeComponent } from './cake/cake.component';
-import { ButtonComponent } from './button/button.component';
 import { SpinnerComponent } from './spinner/spinner.component';
-import { CakeDialogComponent } from './cake-dialog/cake-dialog.component';
-import { MatDialogModule } from '@angular/material';
+import { CakeModule } from './cake-dialog/cake-dialog.module';
+import { ButtonModule } from './button/button.module';
 
 const components = [
   CakeComponent,
-  ButtonComponent,
   SpinnerComponent,
-  CakeDialogComponent
 ];
 
 @NgModule({
@@ -19,10 +16,13 @@ const components = [
   ],
   imports: [
     CommonModule,
-    MatDialogModule,
+    CakeModule,
+    ButtonModule,
   ],
   exports: [
-    components
+    components,
+    CakeModule,
+    ButtonModule,
   ]
 })
 export class SharedModule {
