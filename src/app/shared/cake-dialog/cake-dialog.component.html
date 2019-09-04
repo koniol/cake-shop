@@ -2,28 +2,30 @@
   <header>
     <i class="fa fa-plus" (click)="editImage()"></i>
     <img *ngIf="image" [src]="image" alt="">
-    <input type="file" id="file"
-           accept="image/png, image/jpeg">
-
-    <div *ngIf="!image" class="empty-image-cake">
+    <input type="file" id="file">
+    <div *ngIf="!image" class="empty-image-cake" [ngClass]="{'image-error' : formSubmitted && form.invalid}">
       <i class="fa fa-birthday-cake"></i>
     </div>
   </header>
   <div class="main-container">
     <form name="form" [formGroup]="form">
+
       <div class="form-group cake-name">
         <label>
           <input type="text" name="name" formControlName="name" placeholder="Nazwa ciasta" autocomplete="off">
         </label>
       </div>
+
       <div class="form-group cake-description">
         <label>
-          <textarea placeholder="Opis ciasta" rows="5" formControlName="description" required maxlength="250"
+          <textarea placeholder="Opis ciasta" rows="5" formControlName="description" maxlength="250"
                     appTextareaLetterCounter color="#C4C4C4"
                     autocomplete="off"></textarea>
         </label>
       </div>
+
       <p class="number-portion">LICZBA PORCJI</p>
+
       <div class="form-group cake-portions">
         <label class="container">
           <input type="radio" name="numberOfPortion" value="4" formControlName="numberOfPortion">
@@ -37,6 +39,7 @@
           <input type="radio" name="numberOfPortion" value="12" formControlName="numberOfPortion">
           <span class="checkmark">12</span>
         </label>
+        <div class="error" *ngIf="checkIsValid('numberOfPortion')">Wybierz jedną z opcji</div>
       </div>
 
       <div class="form-group price-box">
@@ -44,11 +47,14 @@
           <label>CENA CIASTA</label>
           <input type="text" placeholder="0 PLN" formControlName="cakePrice" required autocomplete="off">
         </div>
+
         <div class="box portion-price">
           <label>CENA PORCJI</label>
-          <input type="text" placeholder="0 PLN" formControlName="portionPrice" required autocomplete="off">
+          <input type="text" placeholder="0 PLN" class="portion-price" formControlName="portionPrice"
+                 [value]="getPortionPrice()" autocomplete="off">
         </div>
       </div>
+      <div class="error" *ngIf="checkIsValid('cakePrice')">To pele jest wymagane</div>
     </form>
 
   </div>

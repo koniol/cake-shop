@@ -1,9 +1,8 @@
 .cake {
   width: 632px;
-  height: 197px;
-
+  height: 100%;
+  margin: 15px 0;
   box-sizing: border-box;
-  margin-bottom: 25px;
 
   .wrapper {
     display: flex;
@@ -103,3 +102,4 @@
     }
   }
 }
+

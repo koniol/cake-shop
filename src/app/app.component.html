@@ -45,7 +45,7 @@
 
 
 <ng-template #cakesList>
-  <div class="cake" *ngFor="let cake of cakes">
+  <div class="cake" *ngFor="let cake of cakes" [@EnterLeave]>
     <app-cake
       [cake]="cake"
       (edit)="editCake($event)"

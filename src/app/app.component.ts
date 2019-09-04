@@ -5,15 +5,32 @@ import { catchError, tap } from 'rxjs/operators';
 import { of } from 'rxjs';
 import { MatDialog } from '@angular/material';
 import { CakeDialogComponent } from './shared/cake-dialog/cake-dialog.component';
+import { animate, keyframes, query, stagger, style, transition, trigger } from '@angular/animations';
+import { ConfirmDialogComponent } from './shared/confirm-dialog/confirm-dialog.component';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  animations: [
+    trigger('EnterLeave', [
+      transition('* => *', [
+        query(':enter', style({opacity: 0}), {optional: true}),
+
+        query(':enter', stagger('400ms', [
+          animate('1s ease-in', keyframes([
+            style({opacity: 0, transform: 'translateY(-75%)', offset: 0}),
+            style({opacity: .5, transform: 'translateY(35px)', offset: 0.3}),
+            style({opacity: 1, transform: 'translateY(0)', offset: 1.0}),
+          ]))]), {optional: true})
+      ])
+    ])]
 })
+
 export class AppComponent implements OnInit {
   cakes: Array<ICake> = [];
   isLoading = false;
+
 
   constructor(
     private cakesService: CakesService,
@@ -44,7 +61,13 @@ export class AppComponent implements OnInit {
   }
 
   removeCake($event: ICake) {
-    this.cakesService.removeCake($event);
+    const ref = this.dialog.open(ConfirmDialogComponent);
+    ref.afterClosed().subscribe(decision => {
+      if (decision) {
+        this.cakesService.removeCake($event);
+      }
+    });
+
   }
 
   openDialog(data?) {

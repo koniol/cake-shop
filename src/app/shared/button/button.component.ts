@@ -10,13 +10,9 @@ export class ButtonComponent implements OnInit {
   @Input() buttonName: string;
   iconName: string;
 
-  constructor() {
-  }
-
   ngOnInit() {
     if (this.icon) {
       this.iconName = `fa fa-2x fa-${this.icon}`;
     }
   }
-
 }

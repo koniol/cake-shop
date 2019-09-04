@@ -10,10 +10,14 @@ header {
   }
 }
 
+.cake:not(:last-child) {
+  border-bottom: 1px solid #C4C4C4;
+}
+
 .container {
   width: 632px;
   margin: 0 auto;
-  max-height: 540px;
+  height: calc(100vh - 250px);
   overflow: hidden;
   overflow-y: scroll;
   -ms-overflow-style: none;

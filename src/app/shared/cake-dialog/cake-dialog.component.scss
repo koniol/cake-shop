@@ -3,6 +3,11 @@
   height: 100%;
 }
 
+.error {
+  color: red;
+  font-size: 12px;
+}
+
 header {
   background: rgba(196, 196, 196, .1);
   height: 134px;
@@ -63,7 +68,7 @@ header {
 }
 
 .main-container {
-  margin-top: 150px;
+  margin-top: 120px;
 }
 
 .form-group {
@@ -72,15 +77,15 @@ header {
   input[type="text"] {
     font-size: 20px;
     letter-spacing: 0;
+    color: #FFA786;
   }
 
   input[type="text"], textarea {
     border: none;
     outline: none;
     text-align: center;
-    color: #C4C4C4;
     caret-color: #FFA786;
-    font-family: 'PT Bold';
+    font-family: 'PT Bold', serif;
 
     &:focus {
       border-bottom: 1px solid #FFA786;
@@ -108,6 +113,10 @@ header {
       font-size: 20px;
     }
   }
+}
+
+textarea {
+  color: #C4C4C4;
 }
 
 .cake-name {
@@ -211,6 +220,10 @@ header {
   justify-content: center;
   margin-top: 10px;
 
+  .portion-price {
+    background: white;
+  }
+
   .box {
     padding: 0 10px;
 
@@ -222,7 +235,8 @@ header {
     }
 
     & input {
-      width: 70px;
+      width: 100px;
+      max-width: 200px;
     }
   }
 }
@@ -242,4 +256,9 @@ app-button {
   position: absolute;
   top: 21px;
   left: 50%;
+}
+
+
+.image-error {
+  border: 2px solid red !important;
 }
